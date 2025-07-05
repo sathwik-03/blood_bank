@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Registration - Blood Bank Management System</title>
+    <style>
+        body { font-family: Arial, sans-serif; background-color: #f8f9fa; }
+        header { background-color: #dc3545; color: white; padding: 10px 0; text-align: center; }
+        .container { padding: 20px; }
+        form { background-color: white; padding: 20px; margin: 0 auto; max-width: 400px; border-radius: 8px; box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); }
+        form h2 { text-align: center; margin-bottom: 20px; }
+        form label { display: block; margin-bottom: 8px; font-weight: bold; }
+        form input[type="text"], form input[type="number"], form select { width: 100%; padding: 10px; margin-bottom: 20px; border-radius: 4px; }
+        form button { background-color: #dc3545; color: white; width: 100%; padding: 10px; border-radius: 4px; }
+    </style>
+</head>
+<body>
+    <header><h1>Registration</h1></header>
+    <div class="container">
+        <form action="{{ url_for('registration') }}" method="post">
+            <h2>Register as a Donor</h2>
+            <label for="name">Name:</label>
+            <input type="text" id="name" name="name" required>
+            <label for="age">Age:</label>
+            <input type="number" id="age" name="age" required>
+            <label for="phone">Phone Number:</label>
+            <input type="text" id="phone" name="phone" required>
+            <label for="blood_group">Blood Group:</label>
+            <select id="blood_group" name="blood_group" required>
+                <option value="A+">A+</option>
+                <option value="A-">A-</option>
+                <option value="B+">B+</option>
+                <option value="B-">B-</option>
+                <option value="AB+">AB+</option>
+                <option value="AB-">AB-</option>
+                <option value="O+">O+</option>
+                <option value="O-">O-</option>
+            </select>
+            <button type="submit">Register</button>
+        </form>
+    </div>
+</body>
+</html>

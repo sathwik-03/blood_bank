@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Blood Bank Management System</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f8f9fa;
+        }
+        header {
+            background-color: #dc3545;
+            color: white;
+            padding: 10px 0;
+            text-align: center;
+        }
+        nav {
+            display: flex;
+            justify-content: center;
+            background-color: #343a40;
+        }
+        nav a {
+            color: white;
+            padding: 14px 20px;
+            text-decoration: none;
+            text-align: center;
+        }
+        nav a:hover {
+            background-color: #495057;
+        }
+        .container {
+            padding: 20px;
+            text-align: center;
+        }
+        footer {
+            text-align: center;
+            padding: 10px;
+            background-color: #343a40;
+            color: white;
+            position: fixed;
+            width: 100%;
+            bottom: 0;
+        }
+        .button {
+            background-color: #dc3545;
+            color: white;
+            padding: 10px 20px;
+            margin: 10px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            text-decoration: none;
+            font-size: 1em;
+        }
+        .button:hover {
+            background-color: #c82333;
+        }
+        .info {
+            display: none;
+            text-align: left;
+            margin: 20px auto;
+            width: 80%;
+            background-color: #e9ecef;
+            padding: 15px;
+            border-radius: 5px;
+        }
+    </style>
+    <script>
+        function toggleInfo(section) {
+            const infoSections = document.querySelectorAll('.info');
+            infoSections.forEach((info) => {
+                info.style.display = 'none'; // Hide all sections
+            });
+            document.getElementById(section).style.display = 'block'; // Show selected section
+        }
+    </script>
+</head>
+<body>
+    <header>
+        <h1>Welcome to the Blood Bank Management System</h1>
+    </header>
+    <nav>
+        <a href="{{ url_for('index') }}">Home</a>
+        <a href="{{ url_for('about') }}">About Us</a>
+        <a href="{{ url_for('donate') }}">Donate Blood</a>
+        <a href="{{ url_for('request_blood') }}">Request Blood</a>
+        <a href="{{ url_for('contact') }}">Contact</a>
+    </nav>
+    <div class="container">
+        <h2>Your Lifesaving Decision Starts Here!</h2>
+        <p>Join us in making a difference by donating or requesting blood.</p>
+        
+        <a href="javascript:void(0)" class="button" onclick="toggleInfo('donationInfo')">Learn About Donation</a>
+        <a href="javascript:void(0)" class="button" onclick="toggleInfo('requestInfo')">Learn About Requests</a>
+
+        <div id="donationInfo" class="info">
+            <h3>Learn About Donation</h3>
+            <p>Before you donate blood, make sure to:</p>
+            <ul>
+                <li>Be in good health and feeling well.</li>
+                <li>Weigh at least 110 pounds (50 kg).</li>
+                <li>Not have smoked cigarettes or consumed alcohol within 24 hours prior to donating.</li>
+                <li>Wait at least 56 days after your last donation.</li>
+            </ul>
+            <a href="{{ url_for('donate') }}" class="button">Donate Blood</a>
+        </div>
+
+        <div id="requestInfo" class="info">
+            <h3>Learn About Requests</h3>
+            <p>If you need to request blood, please ensure:</p>
+            <ul>
+                <li>You provide all necessary information, including your blood type.</li>
+                <li>You have a valid reason for requesting blood.</li>
+                <li>You know where to go for your blood transfusion.</li>
+            </ul>
+            <a href="{{ url_for('request_blood') }}" class="button">Request Blood</a>
+        </div>
+    </div>
+    <footer>
+        &copy; 2024 Blood Bank Management System
+    </footer>
+</body>
+</html> 

@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Nearest Donors - Blood Bank Management System</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f8f9fa;
+        }
+        header {
+            background-color: #dc3545;
+            color: white;
+            padding: 10px 0;
+            text-align: center;
+        }
+        .container {
+            padding: 20px;
+            text-align: center;
+        }
+        .donor-list {
+            margin-top: 20px;
+            text-align: left;
+            display: inline-block;
+        }
+        .donor {
+            padding: 10px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            margin-bottom: 10px;
+        }
+        .button {
+            background-color: #dc3545;
+            color: white;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            text-decoration: none;
+            font-size: 1em;
+        }
+        .button:hover {
+            background-color: #c82333;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Nearest Donors</h1>
+    </header>
+    <div class="container">
+        <h2>Found the Following Nearest Donors:</h2>
+        
+        <div class="donor-list">
+            {% for donor in nearest_donors %}
+                <div class="donor">
+                    <strong>Name:</strong> {{ donor[0] }}<br>
+                    <strong>Phone:</strong> {{ donor[1] }}<br>
+                    <strong>Distance:</strong> {{ donor[2] | round(2) }} km
+                </div>
+            {% endfor %}
+        </div>
+
+        <a href="{{ url_for('CSP_MAIN') }}" class="button">Back to Home</a>
+    </div>
+</body>
+</html>
